@@ -5,15 +5,14 @@
 
 Summary:	A apache 2.x module for setting an https flag when you are using reverse proxy
 Name:		apache-%{mod_name}
-Version:	0.2
-Release:	%mkrel 7
+Version:	0.4
+Release:	%mkrel 1
 Group:		System/Servers
 License:	Apache License
 URL:		http://websupport.sk/~stanojr/projects/mod_fakessl/
 Source0:	http://websupport.sk/~stanojr/projects/mod_fakessl/mod_fakessl-%{version}.tar.gz
 Source1:	README.%{mod_name}
 Source2:	%{mod_conf}
-Patch0:		mod_fakessl-apache22.diff
 Requires(pre): rpm-helper
 Requires(postun): rpm-helper
 Requires(pre):	apache-conf >= 2.2.0
@@ -31,7 +30,6 @@ A apache 2.x module for setting an https flag when you are using reverse proxy
 %prep
 
 %setup -q -n %{mod_name}-%{version}
-%patch0 -p0
 
 cp %{SOURCE1} .
 cp %{SOURCE2} %{mod_conf}
@@ -45,7 +43,7 @@ find . -type f|xargs file|grep 'text'|cut -d: -f1|xargs perl -p -i -e 's/\r//'
 %{_sbindir}/apxs -c %{mod_name}.c
 
 %install
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 install -d %{buildroot}%{_libdir}/apache-extramodules
 install -d %{buildroot}%{_sysconfdir}/httpd/modules.d
@@ -66,7 +64,7 @@ if [ "$1" = "0" ]; then
 fi
 
 %clean
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
+rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
