@@ -6,7 +6,7 @@
 Summary:	A apache 2.x module for setting an https flag when you are using reverse proxy
 Name:		apache-%{mod_name}
 Version:	0.4
-Release:	%mkrel 6
+Release:	%mkrel 7
 Group:		System/Servers
 License:	Apache License
 URL:		http://websupport.sk/~stanojr/projects/mod_fakessl/
