@@ -1,0 +1,11 @@
+this little apache 2 module is for setting an https flag when you are using
+reverse proxy
+
+example
+
+ client -> (http/https) -> revproxy -> (http only) -> apache
+                                    -> (http only) -> apache
+
+when client connects through https and revproxy adds "HTTPS: something" header,
+this module sets an HTTPS flag in apache
+makes use of the HTTPS (in php $_SERVER['HTTPS']) variable
