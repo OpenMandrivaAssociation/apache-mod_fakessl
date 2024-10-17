@@ -9,7 +9,7 @@ Version:	0.4
 Release:	8
 Group:		System/Servers
 License:	Apache License
-URL:		http://websupport.sk/~stanojr/projects/mod_fakessl/
+URL:		https://websupport.sk/~stanojr/projects/mod_fakessl/
 Source0:	http://websupport.sk/~stanojr/projects/mod_fakessl/mod_fakessl-%{version}.tar.gz
 Source1:	README.%{mod_name}
 Source2:	%{mod_conf}
